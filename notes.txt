@@ -1,0 +1,5 @@
+1- Improvement in token handling...session storage and handing at router
+2- Check if we can use react or not...or only jsp?
+3- test cases for username
+4- Theme improvement
+5- 10 second inactivity leading to logout

@@ -1,0 +1,45 @@
+{
+  "name": "parkson-frontend",
+  "version": "0.1.0",
+  "proxy": "http://localhost:8080/",
+  "build": "react-scripts build && rm -rf ../../src/main/resources/demo/build/ && mv build/ ../../src/main/resources/demo/",
+  "homepage": "/demo/build/",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.6.0",
+    "@material-ui/icons": "^4.5.1",
+    "axios": "^0.18.0",
+    "babel-plugin-optimize-clsx": "^2.3.0",
+    "bootstrap": "^4.1.3",
+    "history": "^4.10.1",
+    "material-datatable": "^0.4.0",
+    "material-ui": "^0.20.2",
+    "react": "^16.5.2",
+    "react-bootstrap": "latest",
+    "react-dom": "^16.5.2",
+    "react-file-base64": "^1.0.3",
+    "react-idle-timer": "^4.2.12",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.2.0",
+    "reactstrap": "^6.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
