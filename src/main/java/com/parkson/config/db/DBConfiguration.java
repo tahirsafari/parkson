@@ -20,7 +20,7 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 @ConditionalOnClass(DataSource.class)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
-@PropertySource(value= "classpath:pgsql.properties")
+@PropertySource("classpath:pgsql.properties")
 public class DBConfiguration {
 	@Value("${db.pgsql.driver}")
 	private String dbDriver;
@@ -46,7 +46,7 @@ public class DBConfiguration {
 	    hikariConfig.setMaximumPoolSize(500);
 	    hikariConfig.setMinimumIdle(5);
 	    hikariConfig.setConnectionTestQuery("SELECT 1");
-	    hikariConfig.setPoolName("montyCP");
+	    hikariConfig.setPoolName("parksonCP");
 
 	    hikariConfig.addDataSourceProperty("dataSource.cachePrepStmts", "true");
 	    hikariConfig.addDataSourceProperty("dataSource.prepStmtCacheSize", "250");
