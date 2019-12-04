@@ -5,27 +5,28 @@ import java.sql.Timestamp;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class AddCompanyDto {
 	@NotNull(message = "Please provide code")
 	@Min(message = "Code should be greater than {value}", value = 1)
 	private Long code;
 	@NotNull(message = "Name can not null")
-	@NotEmpty(message = "Name shall not be empty")
+	@Size(min =1,message = "Name shall not be empty")
 	private String name;
 	@NotNull(message = "Please provide Registeration Number")
-	@NotEmpty(message = "Registeration Number shall not be empty")
+	@Size(min =1, message = "Registeration Number shall not be empty")
 	private String registerationNumber;
 	@NotNull(message = "Activated On shall not be empty")
 	private Timestamp activatedOn;
 	@NotNull(message = "Please provide Code Hris")
-	@NotEmpty(message = "Code Hris shall not be empty")
+	@Size(min =1,message = "Code Hris shall not be empty")
 	private String codeHris;
 	@NotNull(message = "Please provide Abbreviated Name")
-	@NotEmpty(message = "AbbreviatedName shall not be empty")
+	@Size(min =1, message = "AbbreviatedName shall not be empty")
 	private String abbreviatedName;
 	@NotNull(message = "Please choose logo")
-	@NotEmpty(message = "Please choose logo")
+	@Size(min =1, message = "Please choose logo")
 	private String logo;
 	@NotNull(message = "Please choose Status")
 	private Boolean active;

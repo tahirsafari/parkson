@@ -51,7 +51,7 @@ public class CompanyControllerTests {
 		company.setName("");
 		company.setAbbreviatedName("Co");
 		company.setActive(true);
-		company.setLogo("base64");
+		//company.setLogo("base64");
 		company.setRegisterationNumber("1234-A");
 		Instant instant = Instant.now();
 		long timeStampMillis = instant.toEpochMilli();

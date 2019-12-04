@@ -1,20 +1,19 @@
 package com.parkson.dto;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class UserDto {
-    @NotBlank
+    @NotNull
     @Size(min = 4, max = 40)
     private String username;
-    @NotBlank
+    @NotNull
     @Size(min = 6, max = 20)
     private String password;
     
 
     public UserDto() {}
-	public UserDto(@NotBlank @Size(min = 4, max = 40) String username,
-			@NotBlank @Size(min = 6, max = 20) String password) {
+	public UserDto(String username,String password) {
 		super();
 		this.username = username;
 		this.password = password;

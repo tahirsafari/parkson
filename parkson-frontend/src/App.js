@@ -20,7 +20,7 @@ class App extends Component {
       const history = createBrowserHistory();
       return (
 
-            <Router history={history} path="/parkson">
+            <Router history={history} basename={'/parkson'}>
               <div className="app">
               <IdleTimer
               ref={ref => { this.idleTimer = ref }}
