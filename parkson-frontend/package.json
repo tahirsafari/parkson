@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && rimraf ../src/main/webapp/demo/build/ && move build/ ../src/main/webapp/demo/",
+    "build": "react-scripts build && rm ../src/main/webapp/demo/build/ && mv build/ ../src/main/webapp/demo/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

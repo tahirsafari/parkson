@@ -30,8 +30,9 @@ public class MediaManager {
 	}
 	
 	public static String getAbsoluteUploadsPath(){
-		return System.getProperty("user.home")
-					 .concat("/").concat(uploadsFolderName);
+//		return System.getProperty("user.home")
+//					 .concat("/").concat(uploadsFolderName);
+		return uploadsFolderName;
 	}
 	
 	public static void saveBase64EncodedFile(String base64Image, String fileName) throws IOException {

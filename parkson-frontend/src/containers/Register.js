@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import  { Redirect, Link } from 'react-router-dom';
+import  { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import "./Login.css";
-import * as Property from "../properties.js";
 
-export default class Login extends Component {
+export default class Register extends Component {
   constructor(props) {
     super(props);
 
     this.state = { 
         username: "",
         password: "",
-        toDashboardPage: false,
+        toLoginPage: false,
         invalidCredentials: false,
-        //host: 'http://localhost:8080/parkson',
+        host: 'http://localhost:8080/parkson',
       
     };
   }
@@ -22,7 +21,6 @@ export default class Login extends Component {
 
   validateForm() {
     return this.state.username.length > 0 && this.state.password.length > 0;
-    //return true;
   }
 
   handleChange = event => {
@@ -33,16 +31,19 @@ export default class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    // let {user} = this.state;
+    // user.username = this.state.username;
+    // user.password = this.state.password;
     let user = {'username': this.state.username, 'password': this.state.password}
 
-    axios.post(Property.host+'/auth/signin', user).then((response) => {
-      if(response.data && response.data.accessToken){
+    axios.post(this.state.host+'/auth/signup', user).then((response) => {
+      if(response.data && response.data.success === true){
         localStorage.setItem('jwtToken', response.data.accessToken);
-        this.setState({toDashboardPage: true});
+              this.setState({toLoginPage: true});
       }
       
     }).catch((error)=>{
-      if(error.response.data.error || error.response.data.violations){
+      if(error.response.data.success === false || error.response.data.error || error.response.data.violations){
         this.setState({invalidCredentials: true});
       }
     });
@@ -50,14 +51,14 @@ export default class Login extends Component {
   }
 
   render() {
-        if (this.state.toDashboardPage) {
-            return <Redirect to='/dashboard' />
+        if (this.state.toLoginPage) {
+            return <Redirect to='/' />
         }
     return (
       <div className="Login">
         
         <form onSubmit={this.handleSubmit}>
-          {this.state.invalidCredentials && <FormLabel class="alert alert-danger">Invalid Username or Password</FormLabel>}
+          {this.state.invalidCredentials && <FormLabel class="alert alert-danger">Invalid Username or Password or username is already taken</FormLabel>}
           <FormGroup controlId="username" bsSize="large">
             <FormLabel>Username</FormLabel>
             <FormControl
@@ -75,16 +76,14 @@ export default class Login extends Component {
               type="password"
             />
           </FormGroup>
-          <Button block bsSize="large" disabled={!this.validateForm()} type="submit">
-            Login
+          <Button
+            block
+            bsSize="large"
+            disabled={!this.validateForm()}
+            type="submit"
+          >
+            Register
           </Button>
-          <div class="text-center">Or</div>
-          <Link to="/register">
-            <Button renderAs="button" block
-            bsSize="large">
-              <span>Register</span>
-            </Button>
-          </Link>
         </form>
       </div>
     );

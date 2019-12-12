@@ -8,6 +8,7 @@ import {Select,MenuItem} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import FileBase64 from 'react-file-base64';
+import "./index.css";
 //import { ResponsiveContainer } from 'recharts';
 // import Title from './Title';
 
@@ -15,7 +16,7 @@ class Company extends Component {
   state = {
     isAuthenticated: false,
     companies: [],
-    apiBasePoint: 'http://localhost:8080/company/',
+    apiBasePoint: 'http://localhost:8080/parkson/company/',
     newCompany: {
       code: '',
       name: '',
@@ -70,6 +71,7 @@ class Company extends Component {
       }
       else{
         this.toggleNewModal();
+        this._refreshCompanies();
       }
       
     });//to catch the errors if any;
@@ -218,7 +220,7 @@ class Company extends Component {
                   id="datetime-local"
                   label="Activated On"
                   type="datetime-local"
-                  defaultValue="2017-05-24T10:30"
+                  defaultValue="2017-05-24T23:30"
                   value={this.state.newCompany.activatedOn} onChange={(e) => {
                     let { newCompany } = this.state;
 

@@ -18,7 +18,7 @@ public class AddCompanyDto {
 	@Size(min =1, message = "Registeration Number shall not be empty")
 	private String registerationNumber;
 	@NotNull(message = "Activated On shall not be empty")
-	private Timestamp activatedOn;
+	private String activatedOn;
 	@NotNull(message = "Please provide Code Hris")
 	@Size(min =1,message = "Code Hris shall not be empty")
 	private String codeHris;
@@ -31,8 +31,8 @@ public class AddCompanyDto {
 	@NotNull(message = "Please choose Status")
 	private Boolean active;
 
-	private Timestamp createdOn;
-	private String createdBy;
+//	private Timestamp createdOn;
+//	private String createdBy;
 	
 	public long getCode() {
 		return code;
@@ -52,10 +52,10 @@ public class AddCompanyDto {
 	public void setRegisterationNumber(String registerationNumber) {
 		this.registerationNumber = registerationNumber;
 	}
-	public Timestamp getActivatedOn() {
+	public String getActivatedOn() {
 		return activatedOn;
 	}
-	public void setActivatedOn(Timestamp activatedOn) {
+	public void setActivatedOn(String activatedOn) {
 		this.activatedOn = activatedOn;
 	}
 	public String getCodeHris() {
@@ -82,24 +82,24 @@ public class AddCompanyDto {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public Timestamp getCreatedOn() {
-		return createdOn;
-	}
-	public void setCreatedOn(Timestamp createdOn) {
-		this.createdOn = createdOn;
-	}
-	public String getCreatedBy() {
-		return createdBy;
-	}
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
+//	public Timestamp getCreatedOn() {
+//		return createdOn;
+//	}
+//	public void setCreatedOn(Timestamp createdOn) {
+//		this.createdOn = createdOn;
+//	}
+//	public String getCreatedBy() {
+//		return createdBy;
+//	}
+//	public void setCreatedBy(String createdBy) {
+//		this.createdBy = createdBy;
+//	}
 	
 	@Override
 	public String toString() {
 		return "AddCompanyDto [code=" + code + ", name=" + name + ", registerationNumber=" + registerationNumber
 				+ ", activatedOn=" + activatedOn + ", codeHris=" + codeHris + ", abbreviatedName=" + abbreviatedName
-				+ ", logo=" + logo + ", active=" + active + ", createdOn=" + createdOn + ", createdBy=" + createdBy
+				+ ", logo=" + logo + ", active=" + active 
 				+ "]";
 	}
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter,Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter,HashRouter as Router, Switch, Route } from 'react-router-dom'
 import Login from "./containers/Login";
+import Register from "./containers/Register";
 import ImageUpload from './ImageUpload';
 import Dashboard from './Dashboard';
 import IdleTimer from 'react-idle-timer';
@@ -34,6 +35,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Login}/>
                 <Route path="/dashboard" component={Dashboard} />
+                <Route path="/register" component={Register} />
               </Switch>
               </div>
           </Router>

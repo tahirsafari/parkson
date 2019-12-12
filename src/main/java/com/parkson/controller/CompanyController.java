@@ -2,9 +2,16 @@ package com.parkson.controller;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import javax.inject.Inject;
@@ -47,16 +54,20 @@ public class CompanyController {
 	@Autowired
 	private Environment environment;
 	@Inject
-	@Value("${media.files.uploads.foldername}")
-	private String folderName;
+	@Value("${pattern.timestamp}")
+	private String timestampPattern;
 	
 	@PostMapping("/add")
-	public ResponseEntity<?> addCompany(@Valid @RequestBody AddCompanyDto company) throws IOException {
+	public ResponseEntity<?> addCompany(@Valid @RequestBody AddCompanyDto company) throws IOException, ParseException {
 		logger.info("dto object "+company);
 		Company newCompany = new Company();
 		newCompany.setCode(company.getCode());
 		newCompany.setName(company.getName());
 		newCompany.setAbbreviatedName(company.getAbbreviatedName());
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(timestampPattern);
+		LocalDateTime localDateTime = LocalDateTime.from(formatter.parse(company.getActivatedOn()));
+		Timestamp timestamp = Timestamp.valueOf(localDateTime);
+		newCompany.setActivationDate(timestamp);
 		newCompany.setActive(company.isActive());
 		newCompany.setRegisterationNumber(company.getRegisterationNumber());
 		newCompany.setCodeHris(company.getCodeHris());
@@ -97,7 +108,7 @@ public class CompanyController {
 	public String currentUserName() {
 		this.environment.getActiveProfiles();
 		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	     return auth.getName();
+	     return "tahir";
 	}
 	
 }
