@@ -24,7 +24,7 @@ Please note down the following steps to run application;
 	i- npm install
 	ii- npm run build
 	iii- npm start (optional in case you want to run it seperately)
-	Note: React app does not work when run using child domain or subdirectory like http://localhost:8080/parkson. I am yet unable to set it up correctly for child domains. React routes or configuration seems to be the problem
+
 6- App is accessed http://localhost:8080/ or http://localhost:8080/parkson/ depending on how you set up the server
 
 Please have a look at the code for more info.
