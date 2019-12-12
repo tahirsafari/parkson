@@ -3,6 +3,7 @@ import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import  { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import "./Login.css";
+import * as Property from "../properties.js";
 
 export default class Register extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class Register extends Component {
         password: "",
         toLoginPage: false,
         invalidCredentials: false,
-        host: 'http://localhost:8080/parkson',
+        host: Property.host,
       
     };
   }

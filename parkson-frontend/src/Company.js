@@ -9,14 +9,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import FileBase64 from 'react-file-base64';
 import "./index.css";
-//import { ResponsiveContainer } from 'recharts';
-// import Title from './Title';
+import * as Property from "./properties.js";
 
 class Company extends Component {
   state = {
     isAuthenticated: false,
     companies: [],
-    apiBasePoint: 'http://localhost:8080/parkson/company/',
+    apiBasePoint: Property.host+'/company/',
     newCompany: {
       code: '',
       name: '',
