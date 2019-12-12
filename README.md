@@ -1,4 +1,6 @@
 # Parkson
+#Note: Springboot version downgraded to 1.5 from 2 to make it work on Wildfly9. Springboot 2 was working fine with Wildfly 18.
+
 Sample Springboot based Backend App enabled with JSON Web Token authentication and uses pgsql as database.
 
 The technology stack it uses is mentioned below;
