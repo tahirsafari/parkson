@@ -1,5 +1,6 @@
 # Parkson
-## Note: Springboot version downgraded to 1.5 from 2 to make it work on Wildfly9. Springboot 2 was working fine with Wildfly 18.Please make sure you copy the build folder (after running npm run build) of react app located under parkson-frontend, to src/main/webapp/demo.
+## Note: Springboot version downgraded to 1.5 from 2 to make it work on Wildfly9. Springboot 2 was working fine with Wildfly 18.  
+###Please make sure you copy the build folder (after running npm run build) of react app located under parkson-frontend, to src/main/webapp/demo.
 
 Sample Springboot based Backend App enabled with JSON Web Token authentication and uses pgsql as database.
 
