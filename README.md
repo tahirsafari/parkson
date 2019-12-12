@@ -1,5 +1,6 @@
 # Parkson
-#Note: Springboot version downgraded to 1.5 from 2 to make it work on Wildfly9. Springboot 2 was working fine with Wildfly 18.
+## Note: Springboot version downgraded to 1.5 from 2 to make it work on Wildfly9. Springboot 2 was working fine with Wildfly 18.  
+### Please make sure you copy the build folder (after running npm run build) of react app located under parkson-frontend, to src/main/webapp/demo.
 
 Sample Springboot based Backend App enabled with JSON Web Token authentication and uses pgsql as database.
 
@@ -23,7 +24,7 @@ Please note down the following steps to run application;
 	i- npm install
 	ii- npm run build
 	iii- npm start (optional in case you want to run it seperately)
-	Note: React app does not work when run using child domain or subdirectory like http://localhost:8080/parkson. I am yet unable to set it up correctly for child domains. React routes or configuration seems to be the problem
+
 6- App is accessed http://localhost:8080/ or http://localhost:8080/parkson/ depending on how you set up the server
 
 Please have a look at the code for more info.
